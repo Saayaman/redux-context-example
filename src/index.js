@@ -10,6 +10,7 @@ import shopReducer from './store/reducers';
 
 const store = createStore(shopReducer, applyMiddleware(reduxThunk));
 
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
