@@ -14,11 +14,13 @@ const CartPage = () => {
         return count + curItem.quantity;
     }, 0)
   }
+
+  const value = React.useContext(ShopContext)
   return (
-    <ShopContext.Consumer>
-      {(value) => {
-        console.log('values!', value);
-        return (
+    // <ShopContext.Consumer>
+    //   {(value) => {
+    //     console.log('values!', value);
+    //     return (
           <React.Fragment>
             <MainNavigation cartItemNumber={cartItemCount(value.cart)} />
             <main className="cart">
@@ -45,9 +47,9 @@ const CartPage = () => {
               </ul>
             </main>
           </React.Fragment>
-        )
-      }}
-    </ShopContext.Consumer>
+    //     )
+    //   }}
+    // </ShopContext.Consumer>
   )
 }
 

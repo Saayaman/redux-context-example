@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 // import { connect } from 'react-redux';
 
 import MainNavigation from '../components/MainNavigation';
@@ -14,9 +14,11 @@ const ProductsPage = () => {
       }, 0)
   }
 
+  const value = useContext(ShopContext)
+
   return (
-    <ShopContext.Consumer>
-      {(value) => (
+    // <ShopContext.Consumer>
+    //   {(value) => (
         <>
           <MainNavigation cartItemNumber={cartItemCount(value.cart)} />
           <main className="products">
@@ -38,8 +40,8 @@ const ProductsPage = () => {
             </ul>
           </main>
         </>
-      )}
-    </ShopContext.Consumer>
+    //   )}
+    // </ShopContext.Consumer>
   );
 }
 
