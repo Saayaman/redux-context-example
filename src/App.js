@@ -1,21 +1,23 @@
-import React, { Component } from 'react';
+import React, { useReducer } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import ProductsPage from './pages/Products';
 import CartPage from './pages/Cart';
 import './App.css';
 
-class App extends Component {
-  render() {
+import reducer, { initialState } from './store/reducers';
+
+function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/" component={ProductsPage} exact />
-          <Route path="/cart" component={CartPage} exact />
+          <Route path="/" render={() => <ProductsPage state={state} dispatch={dispatch} />} exact />
+          <Route path="/cart" render={() => <CartPage state={state} dispatch={dispatch} />} exact />
         </Switch>
       </BrowserRouter>
     );
-  }
 }
 
 export default App;
