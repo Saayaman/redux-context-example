@@ -19,14 +19,16 @@ class App extends Component {
     cart: []
   }
 
-  addItemToCart = () => {}
+  addProductToCart = (product) => {
+    console.log('product', product);
+  }
   removeItemFromCart = () => {}
 
   render() {
     return (
       <ShopContext.Provider value={{
           ...this.state,
-          addItemToCart: this.addItemToCart, 
+          addProductToCart: this.addProductToCart, 
           removeItemFromCart: this.removeItemFromCart,
         }}>
         <BrowserRouter>

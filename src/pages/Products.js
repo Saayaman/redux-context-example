@@ -28,7 +28,7 @@ const ProductsPage = () => {
                   </div>
                   <div>
                     <button
-                      onClick={this.props.addProductToCart.bind(this, product)}
+                      onClick={() => value.addProductToCart(product)}
                     >
                       Add to Cart
                     </button>
