@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import ShopContext from '../context/shopContext';
 import MainNavigation from '../components/MainNavigation';
 import { REMOVE_PRODUCT_FROM_CART } from '../store/actions';
 import './Cart.css';
 
-const CartPage = ({ state, dispatch}) => {
+const CartPage = () => {
+  const {state, dispatch} = useContext(ShopContext)
+
   const getCartItemCount = () => {
     return state.cart.reduce((count, curItem) => {
         return count + curItem.quantity;

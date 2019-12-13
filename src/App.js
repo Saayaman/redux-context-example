@@ -6,17 +6,23 @@ import CartPage from './pages/Cart';
 import './App.css';
 
 import reducer, { initialState } from './store/reducers';
+import ShopContext from './context/shopContext';
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-    return (
+  return (
+    <ShopContext.Provider value={{
+      state,
+      dispatch
+    }}>
       <BrowserRouter>
         <Switch>
-          <Route path="/" render={() => <ProductsPage state={state} dispatch={dispatch} />} exact />
-          <Route path="/cart" render={() => <CartPage state={state} dispatch={dispatch} />} exact />
+          <Route path="/" render={() => <ProductsPage />} exact />
+          <Route path="/cart" render={() => <CartPage />} exact />
         </Switch>
       </BrowserRouter>
+    </ShopContext.Provider>
     );
 }
 
